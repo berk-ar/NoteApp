@@ -13,14 +13,14 @@ import com.example.noteapp.models.Note
 interface NoteDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun  insert (note : Note)
+    suspend fun insert (note : Note)
 
     @Delete
-    suspend fun  delete(note : Note)
+    suspend fun delete(note : Note)
 
     @Query("SELECT * FROM note_table order by id ASC")
     fun tumNotlar() : LiveData<List<Note>>
 
     @Update
-    suspend fun  update(id : Int?, title : String?, note : String)
+    suspend fun update(id: Int?, title: String?, note: String?)
 }
